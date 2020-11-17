@@ -9,4 +9,4 @@ for CLI tools written in Rust.
 [All Rust Docs](https://tarquin-the-brave.github.io/a-cli-tool/rust-docs/a_cli_tool/)
 
 [Config File Ref - generated from JSON Schema](https://tarquin-the-brave.github.io/a-cli-tool/schema-ref/config/schema_doc.html)
-[Config File Ref - generated from JSON Schema](https://tarquin-the-brave.github.io/a-cli-tool/schema-ref/cli/schema_doc.html)
+[CLI File Ref - generated from JSON Schema](https://tarquin-the-brave.github.io/a-cli-tool/schema-ref/cli/schema_doc.html)
