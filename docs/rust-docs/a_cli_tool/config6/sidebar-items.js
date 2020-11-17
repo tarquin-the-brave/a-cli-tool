@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Actions","The possible operations to perform on the data this tool manipulates."],["Source","The configuration for the source of data for this tool."]],"struct":[["AppData","Application config fields."],["Config","Config Reference"]]});

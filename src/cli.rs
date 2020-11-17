@@ -1,4 +1,4 @@
-#[derive(structopt::StructOpt)]
+#[derive(structopt::StructOpt, schemars::JsonSchema)]
 pub struct Cli {
     #[structopt(short, long)]
     config: std::path::PathBuf,
@@ -10,7 +10,7 @@ pub struct Cli {
     subcommand: Subcommands,
 }
 
-#[derive(structopt::StructOpt)]
+#[derive(structopt::StructOpt, schemars::JsonSchema)]
 pub enum Subcommands {
     Foo,
     Bar,

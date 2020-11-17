@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Cli",
+  "type": "object",
+  "required": [
+    "config",
+    "dry_run",
+    "subcommand"
+  ],
+  "properties": {
+    "config": {
+      "type": "string"
+    },
+    "dry_run": {
+      "type": "boolean"
+    },
+    "subcommand": {
+      "$ref": "#/definitions/Subcommands"
+    }
+  },
+  "definitions": {
+    "Subcommands": {
+      "type": "string",
+      "enum": [
+        "Foo",
+        "Bar",
+        "Baz"
+      ]
+    }
+  }
+}

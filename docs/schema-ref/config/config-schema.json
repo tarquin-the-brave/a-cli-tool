@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Config Reference",
+  "description": "Config file reference for `a_cli_tool`.\n\nBy default `a_cli_tool` looks for configuration in `./config.yaml`, unless another path is specified with the `-c/--config` parameter.",
+  "type": "object",
+  "required": [
+    "actions",
+    "name",
+    "source",
+    "target",
+    "version"
+  ],
+  "properties": {
+    "name": {
+      "description": "The name of the thing this CLI tool is building for you.",
+      "type": "string"
+    },
+    "version": {
+      "description": "The version of the thing this CLI tool will build for you.\n\nThis is a [SemVer][semver] version, e.g:\n\n``` version: 1.2.3 ```\n\n[semver]: https://semver.org/",
+      "type": "string"
+    },
+    "description": {
+      "description": "_Optional:_ A description of the thing this CLI tool is building for you.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source": {
+      "description": "The configuration for the source of data for this tool.",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Source"
+        }
+      ]
+    },
+    "target": {
+      "description": "A path to write the created thing to.",
+      "type": "string"
+    },
+    "actions": {
+      "description": "The operations to perform on the data this tool manipulates.\n\nThis array of operations will be performed in order and an operation may appear more than once.\n\nE.g:\n\n``` actions: [ foo, bar, baz, bar ] ```",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Actions"
+      }
+    }
+  },
+  "definitions": {
+    "Source": {
+      "description": "The configuration for the source of data for this tool.\n\nThis can either be set to a local file, or a URL.",
+      "anyOf": [
+        {
+          "description": "Set source to a file path.\n\n``` file: path/to/file.yaml ```",
+          "type": "object",
+          "required": [
+            "file"
+          ],
+          "properties": {
+            "file": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "description": "Set source to a URL.\n\n``` url: https://urlofsource.com/sourcedata/ ```",
+          "type": "object",
+          "required": [
+            "url"
+          ],
+          "properties": {
+            "url": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "Actions": {
+      "description": "The possible operations to perform on the data this tool manipulates.\n\nSee each option below for what it does and how it's referenced in config.",
+      "type": "string",
+      "enum": [
+        "foo",
+        "bar",
+        "baz",
+        "foo_bar",
+        "bar_baz",
+        "fbb"
+      ]
+    }
+  }
+}

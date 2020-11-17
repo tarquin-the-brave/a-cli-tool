@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Source","The configuration for the source of data for this tool."]],"struct":[["Config","Config Reference"]]});

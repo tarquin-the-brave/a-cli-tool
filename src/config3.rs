@@ -2,7 +2,7 @@
 pub struct Config {
     name: String,
     version: semver::Version,
-    description: String,
+    description: Option<String>,
     #[serde(flatten)]
     data: AppData,
 }
@@ -10,7 +10,7 @@ pub struct Config {
 #[derive(serde::Deserialize)]
 pub struct AppData {
     source: Source,
-    target: Target,
+    target: std::path::PathBuf,
     actions: Vec<Actions>,
 }
 
@@ -19,11 +19,6 @@ pub struct AppData {
 pub enum Source {
     File(std::path::PathBuf),
     Url(String),
-}
-
-#[derive(serde::Deserialize)]
-pub struct Target {
-    path: std::path::PathBuf,
 }
 
 #[derive(serde::Deserialize)]
